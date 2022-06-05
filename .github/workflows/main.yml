@@ -1,0 +1,35 @@
+# This is a main workflow to help you get access and started with Actions
+
+name: CD
+
+# Controls when the workflow will run
+on: [push]
+  # github workflow on push or pull request events to "all branches"
+  push:
+    branches: [ "edit" ]
+  pull_request:
+    branches: [ "deletion" ]
+
+  # Allows you to run and action this workflow manually from the Actions tab
+  github-changelog-generator/.github/workflows/my-action
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: debian-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under self-organising-systems , so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
